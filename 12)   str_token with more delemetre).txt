@@ -1,0 +1,34 @@
+ // strtok(parametre1,parametre2);
+ //parametre1= string pass
+// parametre2 =delimiter=' '
+//use pointer for address not value
+
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char s[100]="we have learn different programming languages like: C,python,Java,Php.";
+
+    // Pointer use for location of a S string word
+    char *word;
+
+    //1st we pass  s & delemetre(space)
+    word=strtok(s," :,.");
+
+    // loop run to null value
+    while(word!='\0')
+    {
+         printf("%s\n",word);
+
+         //  \0 <- mean space replace by 1st value like we , second delemetre=space,comma,fullstop,colon
+         word=strtok('\0'," :,.");
+
+    }
+
+
+
+
+    return 0;
+}
+

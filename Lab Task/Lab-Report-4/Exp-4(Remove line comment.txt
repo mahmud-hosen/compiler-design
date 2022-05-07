@@ -1,0 +1,68 @@
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+void checkComment(char);
+void linecomment();
+
+FILE *f1, *f2;
+
+int main()
+{
+
+    char c;
+
+    f1=fopen("inputline.txt","r");
+    f2=fopen("rwrite.txt","w");
+
+
+           // Loop Run End of file
+    while((c=fgetc(f1))!=EOF)
+        {
+            checkComment(c);
+
+        }
+
+    fclose(f1);
+    fclose(f2);
+
+    printf("\n");
+
+    return 0;
+}
+
+
+void checkComment(char c){
+
+char d;
+if(c=='/'){
+d=fgetc(f1);
+
+if(d=='/'){
+   linecomment();
+}else{
+
+fputc(c,f2);
+fputc(d,f2);
+
+}
+
+}else{
+
+fputc(c,f2);
+
+}
+
+}
+
+
+
+void linecomment(){
+
+char e;
+while((e=fgetc(f1))!=EOF){
+    if(e=='\n'){
+        return;
+    }
+}
+}

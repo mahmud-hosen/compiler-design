@@ -1,0 +1,140 @@
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+
+for(int k=0;k<=7;k++)
+{
+
+
+    char str[100];
+printf ("Enter a string (only with a , b & c ):  ");
+gets(str);
+
+int length,i,state=0;
+
+length=strlen(str);
+
+
+for(i=0;i<length;i++){
+if(state==0 && str[i]=='a'){
+state=1;
+}
+else if(state==0 && str[i]=='c'){
+state=2;
+}
+else if (state==0 && str[i]=='b'){
+state=9;
+}
+
+//
+else if (state==1 && str[i]=='a'){
+state=4;
+}
+else if (state==1 && str[i]=='b'){
+state=9;
+}
+else if (state==1 && str[i]=='c'){
+state=9;
+}
+//
+
+else if (state==2 && str[i]=='a'){
+state=9;
+}
+else if (state==2 && str[i]=='b'){
+state=9;
+}
+else if (state==2 && str[i]=='c'){
+state=3;
+}
+//
+else if (state==3 && str[i]=='a'){
+state=1;
+}
+else if (state==3 && str[i]=='b'){
+state=9;
+}
+else if (state==3 && str[i]=='c'){
+state=9;
+}
+
+//
+else if (state==4 && str[i]=='a'){
+state=5;
+}
+else if (state==4 && str[i]=='b'){
+state=6;
+}
+else if (state==4 && str[i]=='c'){
+state=9;
+}
+//
+
+else if (state==5 && str[i]=='a'){
+state=9;
+}
+else if (state==5 && str[i]=='b'){
+state=6;
+}
+
+else if (state==5 && str[i]=='c'){
+state=9;
+}
+
+//
+
+else if (state==6 && str[i]=='a'){
+state=9;
+}
+else if (state==6 && str[i]=='b'){
+state=7;
+}
+
+else if (state==6 && str[i]=='c'){
+state=9;
+}
+
+//
+
+else if (state==7 && str[i]=='a'){
+state=9;
+}
+else if (state==7 && str[i]=='b'){
+state=8;
+}
+
+else if (state==7 && str[i]=='c'){
+state=9;
+}
+
+//
+
+else if (state==8 && str[i]=='a'){
+state=9;
+}
+else if (state==8 && str[i]=='b'){
+state=7;
+}
+
+else if (state==8 && str[i]=='c'){
+state=9;
+}
+
+}
+
+
+if(state==6||state==8){
+printf("\n    Accepted\n\n");
+}
+else{
+printf("\n    Rejected\n\n");
+}
+
+}
+
+return 0;
+
+
+
+}

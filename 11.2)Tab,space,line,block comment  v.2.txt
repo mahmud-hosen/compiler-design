@@ -1,0 +1,113 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+ FILE *f1,*f2;
+ char c,d;
+
+ void space();
+ void tab();
+ void blockcomment();
+ void linecomment();
+
+int main()
+{
+
+
+
+    f1=fopen("input.txt","r");
+    f2=fopen("output.txt","w");
+
+    while((c=fgetc(f1))!=EOF)
+    {
+        if(c==' ')
+        {
+           space();
+
+
+        }
+        else if(c=='\t')
+        {
+            tab();
+        }
+        else if(c=='/')
+        {
+            d=fgetc(f1);
+            if(d=='/')
+            {
+               linecomment();
+            }
+            else if(d=='*')
+            {
+               blockcomment();
+            }
+            else
+            {
+                fputc(c,f2);
+                fputc(d,f2);
+
+            }
+        }
+        else
+        {
+            fputc(c,f2);
+        }
+
+
+    }
+
+    fclose(f1);
+    fclose(f2);
+
+    return 0;
+}
+
+void space()
+{
+    while((d=fgetc(f1))==' ')
+    {
+
+    }
+     fputc(c,f2);
+     fputc(d,f2);
+
+}
+
+void tab()
+{
+    while((d=fgetc(f1))=='\t')
+    {
+
+    }
+     fputc(c,f2);
+     fputc(d,f2);
+
+}
+void linecomment()
+{
+    char k;
+    while((k=fgetc(f1))!=EOF)
+    {
+        if(k=='\n')
+        {
+            return;
+        }
+    }
+}
+
+void blockcomment()
+{
+    char k,l;
+    while((k=fgetc(f1))!=EOF)
+    {
+        if(k=='*')
+        {
+            l=fgetc(f1);
+            if(l=='/')
+            {
+                return;
+            }
+        }
+    }
+}
+

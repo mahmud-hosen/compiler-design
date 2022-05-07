@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+int main()
+{
+    FILE *f1,*f2;
+    char c,d;
+
+    f1=fopen("input.txt","r");
+    f2=fopen("output.txt","w");
+
+    while((c=fgetc(f1))!=EOF)
+    {
+        if(c=='\t')
+        {
+            while((d=fgetc(f1))=='\t')
+            {
+
+            }
+            fputc(c,f2);
+            fputc(d,f2);
+        }
+        else
+        {
+            fputc(c,f2);
+        }
+
+
+    }
+
+
+    fclose(f1);
+    fclose(f2);
+
+
+    return 0;
+}

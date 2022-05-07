@@ -1,0 +1,57 @@
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    for(int k=0;k<=2;k++)
+    {
+        char str[100];
+    int i,length,count=0;
+
+    printf("Enter the String:   ");
+    gets(str);
+    length=strlen(str);
+
+
+    if((str[0]>='a'&&str[0]<='z')||(str[0]>='A'&&str[0]<='Z')||(str[0]=='$')||(str[0]=='_')||(str[0]=='-'))
+    {
+        for(i=1;i<length;i++)
+        {
+              if((str[i]>='a'&&str[i]<='z')||(str[i]>='A'&&str[i]<='Z')||(str[i]>='0'&&str[i]<='9')||(str[i]=='$')||(str[i]=='_')||(str[i]=='-'))
+                count=count+1;
+
+
+        }
+        if(length-1==count)
+        {
+            if((strcmp(str, "if")==0)||(strcmp(str, "else")==0)||(strcmp(str, "int")==0)||(strcmp(str, "float")==0)||(strcmp(str, "break")==0)||(strcmp(str, "double")==0)||(strcmp(str, "else")==0)||(strcmp(str, "brake")==0)||(strcmp(str, "double")==0))
+            {
+                printf("\nValid identifier \n Keyword\n\n");
+            }
+            else
+            {
+                printf("\nValid identifier \n Variable \n\n");
+            }
+
+
+
+        }else
+        {
+           printf("\nInvalid Idenfifier\n\n");
+
+        }
+
+    }
+    else
+    {
+       printf("\nInvalid idenfifier\n\n");
+    }
+
+
+    }
+
+
+    return 0;
+}
+

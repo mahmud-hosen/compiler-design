@@ -1,0 +1,81 @@
+
+// Removing block and line comment from a given source code.
+#include<stdio.h>
+#include<stdlib.h>
+
+FILE *f1, *f2;
+
+void checkComment(char);
+void blockComment();
+
+int main(){
+
+f1=fopen("input.txt","r");
+f2=fopen("output.txt","w");
+char c;
+
+while((c=fgetc(f1))!=EOF){
+//printf("%c",c);
+checkComment(c);
+
+}
+
+fclose(f1);
+fclose(f2);
+
+return 0;
+}
+
+void checkComment(char c){
+char d,e;
+if(c=='/'){
+d=fgetc(f1);
+if(d=='*'){
+blockComment();
+}
+else if(d=='/'){
+    linecomment();
+
+}
+
+
+
+
+else{
+fputc(c,f2);
+fputc(d,f2);
+}
+}
+
+else{
+fputc(c,f2);
+}
+
+}
+
+void blockComment(){
+char e,f;
+while((e=fgetc(f1))!=EOF){
+if(e=='*'){
+f=fgetc(f1);
+if(f=='/'){
+return;
+}
+}
+}
+
+
+}
+
+
+void linecomment(){
+
+char e;
+while((e=fgetc(f1))!=EOF){
+    if(e=='\n'){
+        return;
+    }
+}
+}
+
+

@@ -1,0 +1,83 @@
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+
+void linecomment();
+void blockComment();
+
+
+FILE *f1,*f2;
+
+int main()
+{
+    char c,d,e;
+    f1=fopen("input.txt","r");
+    f2=fopen("output.txt","w");
+
+    while((c=fgetc(f1))!=EOF)
+    {
+
+
+      if(c=='$')
+        {
+            blockComment();
+
+        }
+         else if(c=='!')
+        {
+            d=fgetc(f1);
+            if(d=='!')
+            {
+                linecomment();
+            }
+            else
+            {
+                fputc(c,f2);
+                fputc(d,f2);
+            }
+
+
+
+        }
+
+        //Line and block comment end
+
+        else
+        {
+            fputc(c,f2);
+        }
+
+
+
+
+    }
+
+    fclose(f1);
+    fclose(f2);
+    return 0;
+}
+
+
+void linecomment(){
+char e;
+while((e=fgetc(f1))!=EOF){
+    if(e=='\n'){
+        return;
+    }
+}
+}
+
+
+void blockComment(){
+char e;
+while((e=fgetc(f1))!=EOF){
+  if(e=='#'){
+        return;
+
+  }
+ }
+}
+
+
+

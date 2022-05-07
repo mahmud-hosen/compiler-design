@@ -1,0 +1,45 @@
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    FILE *fp1, *fp2;
+    char c;
+
+    fp1=fopen("input_file.txt","r");
+    fp2=fopen("rwrite.txt","w");
+           // Loop Run End of file
+    while((c=fgetc(fp1))!=EOF)
+        {
+            //1st letter put into rwrite file
+           if((c == ' ')||(c == '\t')){
+                fputc(c=' ',fp2);
+             }else{
+                fputc(c,fp2);
+             }
+
+           //1st Letter match with space
+             if((c == ' ')||(c == '\t')){
+
+                    // 2nd letter  match with next letter if next letter will be space ,
+                    //loop run when next letter will be not space again put a value in rwrite file
+                 while(((c=fgetc(fp1)) == ' ' )||(c=='\t'))
+                 {
+
+                  }
+             if((c == ' ')||(c == '\t')){
+                fputc(c=' ',fp2);
+             }else{
+                fputc(c,fp2);
+             }
+
+           }
+    }
+
+    fclose(fp1);
+    fclose(fp2);
+    printf("\n");
+    return 0;
+}
+

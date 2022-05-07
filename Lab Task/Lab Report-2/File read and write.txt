@@ -1,0 +1,33 @@
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    //File pointer
+    FILE *fp1, *fp2;
+    char c;
+
+    //File open for read
+    fp1=fopen("input.txt","r");
+    fp2=fopen("write.txt","w");
+
+
+    //File read function-> c=fgetc(fp1) .it read caracture by caracture
+
+    while((c=fgetc(fp1))!=EOF){
+            printf("%c",c);
+
+            // file write caracture by caracture in fp2
+            fputc(c,fp2);
+
+    }
+
+    // File fp1,fp2 close
+    fclose(fp1);
+    fclose(fp2);
+
+    printf("\n");
+
+    return 0;
+}

@@ -1,0 +1,31 @@
+ // strtok(parametre1,parametre2);
+ //parametre1= string pass
+// parametre2 =delimiter=' '
+//use pointer for address not value
+
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char s[100]="we are studying compiler design";
+
+    char *word;
+
+
+    word=strtok(s," ");
+
+    while(word!='\0')
+    {
+         printf("%s\n",word);
+         word=strtok('\0'," ");
+
+    }
+
+
+
+
+
+
+    return 0;
+}
